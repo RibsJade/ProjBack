@@ -24,6 +24,8 @@ def filehandling():
     if request.method == 'POST':
         directory = request.form.get("username")
 
+        if not os.path.isdir("users"):
+            os.mkdir("users")
         errors = []
         if directory != "":
             directory = os.path.join("users", directory)
